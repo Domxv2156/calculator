@@ -9,6 +9,8 @@ const clearBtn = document.querySelector('.clear');
 const currentDisplay = document.querySelector('.currentDisplay');
 const previousDisplay = document.querySelector('.previousNum');
 
+
+
 numberBtn.forEach((btn) => {
     btn.addEventListener('click', (e) => {
         handleNumber(e.target.textContent);
@@ -37,26 +39,43 @@ function handleOperator(op) {
     currentDisplay.textContent = "";
 };
 
-function add(previousNum, currentNum) {
-    return previousNum + currentNum;
-};
-function substract(previousNum, currentNum) {
-    return previousNum - currentNum;
-};
 
-function multiply (previousNum, currentNum) {
-    return previousNum * currentNum;
-};
 
-function divide(previousNum, currentNum) {
-    return (previousNum / currentNum);
-};
+equalBtn.addEventListener('click', () => {
+let result = 0;
+previousNum = Number(previousNum);
+    currentNum = Number(currentNum);
+    if (operator === '+') {
+        result = currentNum + previousNum;
+    } else if (operator === '-') {
+        result = previousNum - currentNum;
+    } else if (operator === 'x') {
+         result = previousNum * currentNum;
+    } else if (operator === '÷') {
+        if(currentNum === 0) {
+            operator = "";
+            previousNum = "";
+            currentNum = "ERROR";
+            previousDisplay.textContent = "";
+            currentDisplay.textContent = currentNum;
+            return;
+        }
+        result = previousNum / currentNum;
+    } else (
+        currentDisplay.textContent = "ERROR"
+    )
+    previousNum = previousNum.toString();
+    previousNum = result;
+    previousDisplay.textContent = "";
+    currentDisplay.textContent = Math.round((result + Number.EPSILON)* 100) /100;
 
-equalBtn.addEventListener('click', (e) => {
-    calculate(e.target.textContent);
+
 });
+    
 
-//calculate() {
-  //  previousNum = Number(previousNum);
-  //  currentNum = Number(currentNum);
-  
+clearBtn.addEventListener('click', () => {
+    previousDisplay.textContent = "";
+    currentDisplay.textContent = "";
+    previousNum = "";
+    currentNum = "";
+});
