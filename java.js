@@ -32,12 +32,18 @@ operatorBtn.forEach((btn) => {
 });
 
 function handleOperator(op) {
+if (previousNum != "") {
+    operator = op;
+    previousDisplay.textContent = previousNum + operator;
+    currentNum = "";
+    currentDisplay.textContent = currentNum;
+} else {
     operator = op;
     previousNum = currentNum;
     previousDisplay.textContent = previousNum + operator;
     currentNum = "";
     currentDisplay.textContent = "";
-};
+}};
 
 
 
@@ -67,7 +73,7 @@ previousNum = Number(previousNum);
     previousNum = previousNum.toString();
     previousNum = result;
     previousDisplay.textContent = "";
-    currentDisplay.textContent = Math.round((result + Number.EPSILON)* 100) /100;
+    currentDisplay.textContent = Math.round((result + Number.EPSILON)* 1000) /1000;
 
 
 });
@@ -75,7 +81,7 @@ previousNum = Number(previousNum);
 
 clearBtn.addEventListener('click', () => {
     previousDisplay.textContent = "";
-    currentDisplay.textContent = "";
+    currentDisplay.textContent = "0";
     previousNum = "";
     currentNum = "";
 });
