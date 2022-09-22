@@ -8,6 +8,9 @@ const numberBtn = document.querySelectorAll('.number');
 const clearBtn = document.querySelector('.clear');
 const currentDisplay = document.querySelector('.currentDisplay');
 const previousDisplay = document.querySelector('.previousNum');
+const decimalBtn = document.querySelector('.decimal');
+
+
 
 
 
@@ -23,6 +26,8 @@ function handleNumber(number) {
         currentDisplay.textContent = currentNum;
     }
 };
+
+
 
 
 operatorBtn.forEach((btn) => {
@@ -85,3 +90,11 @@ clearBtn.addEventListener('click', () => {
     previousNum = "";
     currentNum = "";
 });
+
+decimalBtn.addEventListener('click', () => {
+    if(!currentNum.includes('.')) {
+    currentNum = currentNum + '.';
+    currentDisplay.textContent = currentNum;
+}
+} );
+
