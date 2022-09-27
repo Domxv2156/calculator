@@ -21,7 +21,7 @@ numberBtn.forEach((btn) => {
 });
 
 function handleNumber(number) {
-    if (currentNum.length <= 4) {
+    if (currentNum.length <= 5) {
         currentNum += number;
         currentDisplay.textContent = currentNum;
     }
@@ -42,7 +42,8 @@ if (previousNum != "") {
     previousDisplay.textContent = previousNum + operator;
     currentNum = "";
     currentDisplay.textContent = currentNum;
-} else {
+} 
+else {
     operator = op;
     previousNum = currentNum;
     previousDisplay.textContent = previousNum + operator;
