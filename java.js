@@ -99,3 +99,10 @@ decimalBtn.addEventListener('click', () => {
 }
 } );
 
+window.addEventListener('keypress', handleKeyPress());
+
+
+function handleKeyPress() {
+console.log('hello');
+
+};

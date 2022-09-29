@@ -49,6 +49,7 @@ body {
   justify-content: space-around;
   flex-direction: column;
   padding: 15px;
+  
 }
 
 .clear {
@@ -64,4 +65,5 @@ body {
 .currentDisplay {
   color: white;
   font-size: 2.5rem;
+ 
 }
